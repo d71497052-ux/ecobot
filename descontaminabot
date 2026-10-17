@@ -1,0 +1,38 @@
+#importar librerias
+import discord
+from discord.ext import commands
+#importando permisos del bot
+intents = discord.Intents.default()
+intents.message_content = True
+descontaminabot = commands.Bot(command_prefix='*', intents=intents)
+# bot en linea
+@descontaminabot.event
+async def on_ready():
+    print('bot  en linea ve a discord')
+#saludo del bot
+@descontaminabot.command()
+async def hola(ctx):
+    await ctx.send(f"hola {ctx.author.name} hoy te ayudare en información sobre el medio ambiente y demas sobre la contaminación")
+#lista de comandos del bot
+@descontaminabot.command()
+async def comandos(ctx):
+    await ctx.send('los comandos existentes son:*hola,*comandos,*web_analizada ,*informe_contaminacion,*mas_informaccion.*ayuda,*que_mas_puedo_hacer')
+#informe de contaminacion
+@descontaminabot.command()
+async def informe_contaminacion(ctx):
+    await ctx.send(f"{ctx.author.name},te dare informacion sobre la contaminacion del planeta compia el enlace : https://climatetrace.org/")
+#mensajes raros que responde el bot/web_analizada/mas_informacion/ayuda
+@descontaminabot.command()
+async def web_analizada(ctx):
+    await ctx.send("segun lo que viste aprende a cuidar el planeta")
+@descontaminabot.command()
+async def mas_informacion(ctx):
+    await ctx.send("si quiere mas informacion pues averigue usted que yo no le ayudare mas")
+@descontaminabot.command()
+async def  ayuda(ctx):
+    await ctx.send("pues solucione uste mijito que ya le ayude con la app si quiere aquitiene otraves el link: : https://climatetrace.org/")
+@descontaminabot.command()
+async def que_mas_puedo_hacer(ctx):
+    await ctx.send("puedes mirar en este link para hacer manualidades con materia recicliado: https://www.youtube.com/results?search_query=manualidades+con+materia+reciclado")
+#cadena de envio de mensajes del bot
+descontaminabot.run("")
